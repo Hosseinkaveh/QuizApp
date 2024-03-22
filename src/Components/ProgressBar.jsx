@@ -4,7 +4,6 @@ export default function ProgressBar({ time, onTimeOut }) {
   const [timeRemaining, setTimeRemaining] = useState(time);
 
   useEffect(() => {
-    console.log("SET TIMEOUT");
     const timeOut = setTimeout(onTimeOut, time);
     return () => {
       clearTimeout(timeOut);
@@ -12,7 +11,6 @@ export default function ProgressBar({ time, onTimeOut }) {
   }, [time, onTimeOut]);
 
   useEffect(() => {
-    console.log("SET INTERVAL");
     const timeinterval = setInterval(() => {
       setTimeRemaining((pre) => pre - 10);
     }, 10);
